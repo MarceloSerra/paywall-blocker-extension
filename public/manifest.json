@@ -1,0 +1,21 @@
+{
+    "name": "Paywall Blocker",
+    "version": "1.0.0",
+    "description": "Paywall Blocker",
+    "manifest_version": 3,
+    "author": "Marcelo Serra",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Paywall Blocker"
+    },
+    "permissions": [
+        "background",
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "app/background.js"
+    }
+}
