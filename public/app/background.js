@@ -19,7 +19,7 @@ const blockRequests = (details) => {
 			console.log({ background: details });
 			return { cancel: true };
 		},
-		{ urls: [mergeUrlsToBlock(urlsToBlock)] },
+		{ urls: mergeUrlsToBlock(urlsToBlock) },
 		["blocking", "requestHeaders"]
 	);
 };
