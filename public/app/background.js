@@ -1,9 +1,5 @@
 const urlsToBlock = {
-	estadao: [
-		"https://acesso.estadao.com.br/paywall/v2/config.php",
-		"https://www.estadao.com.br/zephr/features",
-		"https://www.estadao.com.br/zephr/feature-decisions",
-	],
+	estadao: ["*://*/paywall/v2/config.php", "*://*/zephr/*", "*://*/zephr/*"],
 	// TODO: Add more domains
 };
 
@@ -13,15 +9,13 @@ const mergeUrlsToBlock = (urls) => {
 	}, []);
 };
 
-const blockRequests = (details) => {
-	chrome.webRequest.onBeforeSendHeaders.addListener(
-		() => {
-			console.log({ background: details });
-			return { cancel: true };
-		},
-		{ urls: mergeUrlsToBlock(urlsToBlock) },
-		["blocking", "requestHeaders"]
-	);
-};
-
-blockRequests();
+chrome.webRequest.onBeforeRequest.addListener(
+	(details) => {
+		console.log({ background: details });
+		return { cancel: true };
+	},
+	{
+		urls: mergeUrlsToBlock(urlsToBlock),
+	},
+	["blocking"] // "requestHeaders"
+);

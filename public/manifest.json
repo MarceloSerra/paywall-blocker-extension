@@ -2,7 +2,7 @@
     "name": "Paywall Blocker",
     "version": "1.0.0",
     "description": "Paywall Blocker",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "author": "Marcelo Serra",
     "action": {
         "default_popup": "index.html",
