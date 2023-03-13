@@ -1,5 +1,6 @@
 const urlsToBlock = {
-	estadao: ["*://*/paywall/v2/config.php", "*://*/zephr/*", "*://*/zephr/*"],
+	general: ["*://*/paywall/**/*"],
+	estadao: ["*://*/zephr/*", "*://*/zephr/*"],
 	// TODO: Add more domains
 };
 
@@ -9,13 +10,17 @@ const mergeUrlsToBlock = (urls) => {
 	}, []);
 };
 
-chrome.webRequest.onBeforeRequest.addListener(
-	(details) => {
-		console.log({ background: details });
-		return { cancel: true };
-	},
-	{
-		urls: mergeUrlsToBlock(urlsToBlock),
-	},
-	["blocking"] // "requestHeaders"
-);
+const blockRequests = () => {
+	chrome.webRequest.onBeforeRequest.addListener(
+		(details) => {
+			console.log({ background: details });
+			return { cancel: true };
+		},
+		{
+			urls: mergeUrlsToBlock(urlsToBlock),
+		},
+		["blocking"] // "requestHeaders"
+	);
+};
+
+blockRequests();
