@@ -1,7 +1,7 @@
 const urlsToBlock = {
 	general: ["*://*/paywall/**/*"],
 	estadao: ["*://*/zephr/*", "*://*/zephr/*"],
-	gazetaDoPovo: ["*://www.gazetadopovo.com.br/assets2/gazetadopovo*.js"],
+	gazetaDoPovo: ["*://*/assets2/gazetadopovo*.js"],
 	// TODO: Add more domains
 };
 
