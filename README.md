@@ -13,3 +13,8 @@
 ## Using
 
 - Open some _Estadao_ news and check if the extension works
+
+## Current Support
+- Estadão
+- Folha de SP
+- Gazeta do Povo
